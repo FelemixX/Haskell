@@ -7,7 +7,7 @@ auto('UAZ', 8000, green, 25).
 auto('UAZ', 12000, cyan, 15).
 auto('ford', 9000, blue, 2).
 auto('mazda', 25000, black, 10).
-auto('Cherry Volga', 123123, cherry, 50).
+auto('Volga', 123123, cherry, 50).
 
 
 /* b. car(Brand, Cost, Color, Age), Cost < 5000.
@@ -15,9 +15,9 @@ auto('Cherry Volga', 123123, cherry, 50).
 			buy(Brand, Cost, Color, Age).
 	d.  auto(Brand, 10000, Color, Age).
 */
-buy(Brand, Cost, Color, Age) :-	auto(Brand, Cost, blue, Age), Age < 3, Cost  ; auto(Brand, Cost, green, Age), Age < 3. 
+buy(Brand, Cost, Color, Age) :-	auto(Brand, NewCost, Color, Age), NewCost < Cost, Age < 30, (Color = blue; Color = green). 
 
-%2.4
+/*%2.4
 has('Oleg', book('Pushkin', 'Captains Daughter')).
 has('Lena', book('Monten', 'Expirements')).
 has('Ira', handkerchief(blue)).
@@ -51,8 +51,8 @@ lives('Thunderbird', air).
 lives('Troubles', ass).
 
 /* 
-a.lives(Creature, Env),lives(Creature,Env2),Env\=Env2. %???
-b. lives(Creature,Env), aggregate_all(count, lives(Creature,  _), Count), Count = 1.
+b.lives(Creature, Env),lives(Creature,Env2), dif(Env,Env2).
+a. lives(Creature,Env), aggregate_all(count, lives(Creature,  _), Count), Count = 1.
 */
 
 %2.6
@@ -90,7 +90,7 @@ has(Rich, rubles(TheMost)), has(Who, rubles(Sum)), has(Who2, rubles(Sum2)), has(
 %f 
 has('Nick', rubles(Money)), price(Item, rubles(Cost)), Money >= Cost.
 has('Nick', Item), has('Ivan', Item), Item \= rubles(Money).
-*/
+
 
 %g
 married('Ann', 'Kolya').
@@ -100,10 +100,10 @@ married('Olga', 'Pyotr').
 /*has(married(Wife, Husband), Item) :- has(Husband, Item).
 */
 %h
-%bothHave(Who, What) := has(Who, Item), Who = married(_, Husband). %???
+has(Who, Item) := has(Who, Item), married(Who, Husband). 
 
 /* 
 %i
 has('Mary', auto(Brand, Cost, Color, Age).
-has('Ann', Item), not(has('Mary', Item2)), Item < rubles(Money), Item \= Item2.
+has('Ann', Item), not(has('Mary', Item2)). */
 */
