@@ -1,3 +1,3 @@
-Haskell and haskell driven Prolog labs
+Haskell and haskell driven Prolog labs.
 .hs - haskell
 .pl - prolog
