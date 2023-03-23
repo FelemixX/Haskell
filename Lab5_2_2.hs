@@ -1,3 +1,5 @@
+module Lab5_2_2 where
+
 import Data.Maybe (mapMaybe)
 
 data Product = Book String String | Cassette String | Disk String String Int deriving (Eq,Show)
